@@ -123,7 +123,7 @@ I've never used Flask, so I used the default flask app provided to continue with
 
 Since I know that the service map for this is going to be fairly boring (no dependencies), I start with invoking ddtrace-run. I purposely curl some bad URLs so I have something interesting to look at in the traces besides 200OK... but honestly this is still pretty bleak looking.
 
-	<img src="images/flask_is_online.png">
+<img src="images/flask_is_online.png">
 
 Here's some logs showing me checking out this basic webapp and it sending traces, for reference:
 		
@@ -146,7 +146,7 @@ Here's some logs showing me checking out this basic webapp and it sending traces
 
 ..as you can see, the traces showed up in the UI:
 
-	<img src="images/we_have_traces.png">
+<img src="images/we_have_traces.png">
 
 
 So... to make this better, I redid all this by putting some dependencies in there:
@@ -158,7 +158,7 @@ I then re-instrumented the app, curled a few of the URLs to force some traces...
 
 And voila... the service map shows the db dependency.
 
-	<img src="images/we_have_dependencies.png" width=400px>
+<img src="images/we_have_dependencies.png" width=400px>
 
 We also made a quick timeboard showing the health of the box as the site was getting used.  Again, it's pretty simplistic, we can certainly go nuts here and do a lot of fancy things with the dashboard, but the main idea here - to use the board to show a snapshot of how multiple things are doing at one time - stays the same.  What you CAN see here is that the 500's line up to where the MySQL is getting a few extra queries, but that there's no CPU latency to blame:
 
@@ -169,7 +169,7 @@ We also made a quick timeboard showing the health of the box as the site was get
  
 If you clicked on that and can't see, I also made a quick Screenboard and made it public:
 
-	<a href=https://p.datadoghq.com/sb/cf1e2a4ea-503c962c1610e556f0adcb22eeaf6fdd><img src="images/apm_screenboard.png"></a>
+<a href=https://p.datadoghq.com/sb/cf1e2a4ea-503c962c1610e556f0adcb22eeaf6fdd><img src="images/apm_screenboard.png"></a>
 
 
 ### Service vs. Resource
